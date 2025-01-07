@@ -2,14 +2,10 @@
   "index": "Introduction",
   "Usage": "Usage",
   "Animations": "Animations",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://x.com/sarthakbakre",
     "newWindow": true
   }
 }
