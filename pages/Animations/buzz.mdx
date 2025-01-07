@@ -1,0 +1,42 @@
+# Buzz
+
+This animation is generally used to give feedback to the user. For example, when the user presses this button, this animation runs to give fedback that an error has occoured.
+
+### Animation Options
+
+Customize your animation using these options. 
+
+Check [Customization](/Usage#customization) for more info!
+
+| **Options**        | **Description**                                                                              | **Default**                       |
+|---------------------|----------------------------------------------------------------------------------------------|-------------------------------------|
+| frequency  | The frequency of oscillation effect                                            | 2                           |
+| rotation  | The amount of rotation on each side                                            | 2                               |
+| duration| Duration of the animation                                                  | 50 (ms)           |
+
+
+### Implementation
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationTrigger='press' animationType='buzz'>
+        <TouchableOpacity style={styles.container}>
+            <Text>Press me!</Text>
+        </TouchableOpacity>
+    </AnimatedWrapper>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "red",
+    paddingVertical: 15,
+    marginVertical: 10,
+    borderRadius: 10,
+    width: 200,
+  },
+});
+```

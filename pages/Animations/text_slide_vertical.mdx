@@ -1,0 +1,26 @@
+# Text Slide Vertical
+
+The text slides in from the x-axis that gives a cool effect. This animation is also generally run on initialisation.
+
+### Animation Options
+
+Customize your animation using these options. 
+
+Check [Customization](/Usage#customization) for more info!
+
+| **Options**        | **Description**                                                                              | **Default**                       |
+|---------------------|----------------------------------------------------------------------------------------------|-------------------------------------|
+| offset  | The distance from which the text should slide in                                            | 30                                |
+| duration| How long should it take to slide in.                                                       | 100 (ms)           |
+
+### Implementation
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationTrigger='init' animationType='text_slide_vertical'>
+        <Text>Hello World!!</Text>
+    </AnimatedWrapper>
+)
+```

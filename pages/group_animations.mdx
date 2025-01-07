@@ -1,0 +1,39 @@
+## Group Animations
+
+You can create cool group animations easily using the same format. This animates the children inside your component
+
+### Implementation
+
+Just set ```isGroup={true}``` in your **AnimatedWrapper**.
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationType='pop_in' animationTrigger='init' isGroup={true}>
+        <View>
+            <View style={styles.container}>
+                <Text>react-native</Text>
+            </View>
+            <View style={styles.container}>
+                <Text>micro</Text>
+            </View>
+            <View style={styles.container}>
+                <Text>interactions</Text>
+            </View>
+        </View>
+    </AnimatedWrapper>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "red",
+    paddingVertical: 15,
+    marginVertical: 10,
+    borderRadius: 10,
+    width: 200,
+  },
+});
+```

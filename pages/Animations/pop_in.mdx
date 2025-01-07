@@ -1,0 +1,27 @@
+# Pop In
+
+This animation is generally used when the component is first initialised. Check out **Group Animations** to find a better use case for this animation
+
+### Animation Options
+
+Customize your animation using these options. 
+
+Check [Customization](/Usage#customization) for more info!
+
+| **Options**        | **Description**                                                                              | **Default**                       |
+|---------------------|----------------------------------------------------------------------------------------------|-------------------------------------|
+| withBounce  | enable/disable bounce effect in pop in animation                                            | true                                |
+| duration| How long should it take to slide in.                                                       | 250 (ms)           |
+
+
+### Implementation
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationTrigger='init' animationType='pop_in'>
+        <Text>Hello World!!</Text>
+    </AnimatedWrapper>
+)
+```

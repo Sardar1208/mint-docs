@@ -1,0 +1,128 @@
+# Usage
+You can use this library in the following ways
+
+### Single animation
+
+Lets add a simple micro interaction to a button when the user presses it.
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationTrigger='press' animationType='click'>
+        <TouchableOpacity style={styles.container}>
+            <Text>Press me!</Text>
+        </TouchableOpacity>
+    </AnimatedWrapper>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "red",
+    paddingVertical: 15,
+    marginVertical: 10,
+    borderRadius: 10,
+    width: 200,
+  },
+});
+```
+
+You check out different types of animations in the [Animations](/Animations/buzz) section
+
+### Pre-defined triggers
+
+The ```animationTrigger``` property is responsible for defining the trigger on which the animation will start. You can choose from these pre defined triggers or create your **custom trigger**
+
+| **Triggers**        | **Description**                                                                              |
+|---------------------|----------------------------------------------------------------------------------------------|
+| **init**  | When a component is first rendered on the screen.                                            |
+| **press**| When the user presses the component.                                                        |
+| **long_press**        | When the user long presses the component               |
+
+
+### Custom Trigger
+
+Define a ```ref``` which can be used to trigger the animation anytime using the ```runAnimation()``` method.
+
+```js
+import { AnimatedWrapper, AnimatedWrapperRef } from 'react-native-micro-interactions';
+
+// Define a ref to trigger it anywhere
+const submitRef = useRef<AnimatedWrapperRef>(null);
+
+return(
+    <AnimatedWrapper animationType='buzz' ref={submitRef}>
+        <TouchableOpacity 
+            style={styles.container} 
+            onPress={() => { submitRef.current?.runAnimation() }}
+        >
+            <Text>Submit</Text>
+        </TouchableOpacity>
+    </AnimatedWrapper>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "red",
+    paddingVertical: 15,
+    marginVertical: 10,
+    borderRadius: 10,
+    width: 200,
+  },
+});
+```
+
+### Group Animations
+
+You can also animate each item in a component as a group without any extra config.
+
+Check out [Group Animations](/group_animations)
+
+### Customization
+
+You can further customise the and abstract the configuration using a config file.
+
+Step 1 - Create a ```mint.config.ts``` file in your project root. 
+
+Step 2 - In you App.tsx, wrap your entry code in a ```MintProvider```
+
+```js
+import { MintProvider } from 'react-native-micro-interactions';
+import MintConfig from "../mint.config"
+
+<MintProvider config={MintConfig}>
+    // Your entry code
+</MintProvider>
+```
+
+Step 3 - Add this to ```mint.config.ts``` .Customize the values as you like and they will applied by default.
+
+```js
+export default AnimationConfig({
+    "click": {
+        shrink: 0.9,
+        shrinkDuration: 50,
+    },
+    "buzz": {
+        frequency: 2,
+        rotation: 2,
+        duration: 50,
+    },
+    "popIn": {
+        duration: 250,
+        withBounce: true,
+    },
+    "textSlideVertical": {
+        duration:100,
+        offset: 30,
+    },
+    "textSlideHorizontal": {
+        duration:100,
+        offset: 30,
+    }
+})
+```

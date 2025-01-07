@@ -1,7 +1,7 @@
 {
   "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "Usage": "Usage",
+  "Animations": "Animations",
   "about": {
     "title": "About",
     "type": "page"

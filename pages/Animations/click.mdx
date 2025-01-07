@@ -1,0 +1,41 @@
+# Click
+
+This animation adds depth to the touch events from the user. For example, when the user presses this button, this is how it looks
+
+### Animation Options
+
+Customize your animation using these options. 
+
+Check [Customization](/Usage#customization) for more info!
+
+| **Options**        | **Description**                                                                              | **Default**                       |
+|---------------------|----------------------------------------------------------------------------------------------|-------------------------------------|
+| shrink  | shrink factor (0-1)                                           | 0.9                          |
+| shrinkDuration| Duration of the animtion                                                       | 50 (ms)           |
+
+
+### Implementation
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationTrigger='press' animationType='click'>
+        <TouchableOpacity style={styles.container}>
+            <Text>Press me!</Text>
+        </TouchableOpacity>
+    </AnimatedWrapper>
+)
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "red",
+    paddingVertical: 15,
+    marginVertical: 10,
+    borderRadius: 10,
+    width: 200,
+  },
+});
+```
