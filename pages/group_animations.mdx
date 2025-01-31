@@ -4,7 +4,16 @@ import Image from "next/image";
 
 You can create cool group animations easily using the same format. This animates the children inside your component
 
-<Image src="/group_anim.gif" width={400} height={100} style={{marginTop: "20px"}}/>
+<Image src="/dropin-group-gif.gif" width={250} height={50} style={{marginTop: "20px"}}/>
+
+### Working
+
+Lets say you want to animate a list of items. All you have to do is wrap you component with AnimatedWrapper and set ```isGroup={true}```.
+Now all children inside your component will be animated. 
+
+### Need to animate dynamic list ?
+
+This also supports dynamic children. So even if your list grows, it will animate the new items as they are added :)
 
 ### Implementation
 
@@ -13,18 +22,13 @@ Just set ```isGroup={true}``` in your **AnimatedWrapper**.
 ```js
 import { AnimatedWrapper } from 'react-native-micro-interactions';
 
+const [list, setList] = useState(["A", "B", "C"]);
+
 return(
-    <AnimatedWrapper animationType='pop_in' animationTrigger='init' isGroup={true}>
+    <AnimatedWrapper animationType='drop_in' animationTrigger='init' isGroup={true}>
+        // Your dynamic component
         <View>
-            <View style={styles.container}>
-                <Text>react-native</Text>
-            </View>
-            <View style={styles.container}>
-                <Text>micro</Text>
-            </View>
-            <View style={styles.container}>
-                <Text>interactions</Text>
-            </View>
+            {list.map((item) => <MyComponent />)}
         </View>
     </AnimatedWrapper>
 )

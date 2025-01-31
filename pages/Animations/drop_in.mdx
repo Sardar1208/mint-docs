@@ -1,0 +1,33 @@
+import Image from "next/image";
+
+# Drop In
+
+A subtle way to initialise a component. 
+This animation is generally used when the component is first initialised. Check out [Group Animations](/group_animations) to find a better use case for this animation
+
+<Image src="/dropin-group-gif.gif" width={200} height={50} style={{marginTop: "20px"}}/>
+
+### Animation Options
+
+Customize your animation using these options. 
+
+Check [Customization](/Usage#customization) for more info!
+
+| **Options**        | **Description**                                                                              | **Default**                       |
+|---------------------|----------------------------------------------------------------------------------------------|-------------------------------------|
+| withBounce  | enable/disable bounce effect                                            | true                                |
+| duration| How long should it take to slide in.                                                       | 250 (ms)           |
+| damping| Controls the magnitude of bounce effect                                                       | 10           |
+
+
+### Implementation
+
+```js
+import { AnimatedWrapper } from 'react-native-micro-interactions';
+
+return(
+    <AnimatedWrapper animationTrigger='init' animationType='drop_in'>
+        <Text>Hello World!!</Text>
+    </AnimatedWrapper>
+)
+```
